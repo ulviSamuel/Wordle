@@ -1,0 +1,28 @@
+<html>
+  <head>
+
+  </head>
+
+  <body>
+      <input type="text" name="nuovaParola" id="nuovaParola" maxlength="5">
+      <button onclick="clickBtnCerca()">Invio</button>
+
+      <p id="vecchieParole"></p>
+
+      <script>
+        function clickBtnCerca()
+        {
+          var xhttp = new XMLHttpRequest();
+          xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) 
+              document.getElementById("vecchieParole").innerHTML = this.responseText;
+            };
+            var nuovaParola = document.getElementById("nuovaParola").value;
+            var vecchieParole = document.getElementById("vecchieParole").innerHTML;
+            xhttp.open("GET", "verifica_parola.php?nuovaParola="+nuovaParola+"&vecchieParole="+vecchieParole, true);
+            xhttp.send();
+        }
+      </script>
+
+  </body>
+</html>
