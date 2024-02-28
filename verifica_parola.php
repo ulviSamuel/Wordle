@@ -7,6 +7,8 @@
     if($parolaEistente == true)
     {
         require_once("verifica_posizione_giusta_lettera.php");
+        if($cont != 5)
+            require_once("verifica_caratteri_giusti.php.php");
     }
     echo $codiceHtml;
     //echo $_REQUEST['vecchieParole'] . "<br>" . $_REQUEST['nuovaParola'];
