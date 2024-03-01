@@ -1,5 +1,5 @@
 <?php
-    $sql = "CALL testParole(15, '$nuovaParola')";
+    $sql = "CALL testParole($idParolaDaTrovare, '$nuovaParola')";
     $res = mysqli_query($con, $sql);
     $row = mysqli_fetch_array($res);
     $vectColori[5];

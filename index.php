@@ -1,3 +1,11 @@
+<?php
+  require_once("var_conn.php");
+  $sql = "CALL getIdRandom()";
+  $res = mysqli_query($con, $sql);
+  $row = mysqli_fetch_array($res);
+  $_SESSION['idParolaDaTrovare'] = $row[0];
+?>
+
 <html>
   <head>
       
