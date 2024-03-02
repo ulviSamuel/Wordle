@@ -8,6 +8,10 @@
             $codiceHtml = $codiceHtml . "<span class='$vectColori[$idx]'>$char</span>";
         }
         $codiceHtml = $codiceHtml . "</span>";
+        if($cont == 5)
+        {
+            $codiceHtml = $codiceHtml . "win";
+        }
     }
     else
         $codiceHtml = $vecchieParole;

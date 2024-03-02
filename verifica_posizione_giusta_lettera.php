@@ -4,7 +4,7 @@
     $row = mysqli_fetch_array($res);
     $vectColori[5];
     $row = mysqli_fetch_array($res);*/
-    $row = [0, 0, 0, 1, 1];
+    $row = [0, 0, 1, 1, 1];
     $vectColori = ['', '', '', '', ''];
     $cont = 0;
     for($idx = 0; $idx < 5; ++$idx)

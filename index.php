@@ -32,7 +32,18 @@
                 var xhttp = new XMLHttpRequest();
                 xhttp.onreadystatechange = function() {
                 if (this.readyState == 4 && this.status == 200) 
-                  document.getElementById("vecchieParole").innerHTML = this.responseText;
+                {
+                    var res = this.responseText;
+                    if (res.slice(-3) == "win")
+                    {
+                      res = res.slice(0, -3);
+                      var pulsanteInvio = document.getElementById("invioBtn");
+                      pulsanteInvio.style.display = "none";
+                      var iNuovaParola = document.getElementById("nuovaParola");
+                      iNuovaParola.style.display = "none";
+                    }
+                    document.getElementById("vecchieParole").innerHTML = res;
+                }
                 };
                 var vecchieParole = document.getElementById("vecchieParole").innerHTML;
                 xhttp.open("GET", "verifica_parola.php?nuovaParola="+nuovaParola+"&vecchieParole="+vecchieParole, true);
