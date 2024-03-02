@@ -42,6 +42,8 @@
                       pulsanteInvio.style.display = "none";
                       var iNuovaParola = document.getElementById("nuovaParola");
                       iNuovaParola.style.display = "none";
+                      var lettereBandite = document.getElementById("lettereBandite");
+                      lettereBandite.style.display = "none";
                       document.getElementById("vecchieParole").innerHTML = res;
                     }
                     else
@@ -69,6 +71,8 @@
             pulsanteInvio.style.display = "none";
             var iNuovaParola = document.getElementById("nuovaParola");
             iNuovaParola.style.display = "none";
+            var lettereBandite = document.getElementById("lettereBandite");
+            lettereBandite.style.display = "none";
           }
         }
 

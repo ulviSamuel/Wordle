@@ -4,7 +4,7 @@
     $row = mysqli_fetch_array($res);
     $vectColori[5];
     $row = mysqli_fetch_array($res);*/
-    $row = [0, 0, 1, 1, 1];
+    $row = [0, 0, 0, 0, 0];
     $vectColori = ['', '', '', '', ''];
     $cont = 0;
     for($idx = 0; $idx < 5; ++$idx)
@@ -17,17 +17,6 @@
         else
         {
             $vectColori[$idx] = 'letteraNera';
-            $lettera = substr($nuovaParola, $idx, 1);
-            if (empty($lettereBandite))
-            {
-                array_push($lettereBandite, $lettera);
-            }
-            else
-            {
-                if(!in_array($lettera, $lettereBandite))
-                    array_push($lettereBandite, $lettera);
-            }
         }
     }
-    sort($lettereBandite);
 ?>
