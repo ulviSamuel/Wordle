@@ -4,7 +4,6 @@
   $res = mysqli_query($con, $sql);
   $row = mysqli_fetch_array($res);
   $_SESSION['idParolaDaTrovare'] = $row[0];*/
-  session_start();
 ?>
 
 <html>

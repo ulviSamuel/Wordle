@@ -12,11 +12,9 @@
         if($row[$idx] == 1)
         {
             ++$cont;
-            $vectColori[$idx] = '#00ff00';
             $vectColori[$idx] = 'letteraVerde';
         }
         else
-            $vectColori[$idx] = '#000000';
             $vectColori[$idx] = 'letteraNera';
     }
 ?>

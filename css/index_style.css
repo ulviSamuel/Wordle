@@ -8,12 +8,14 @@ body
 {
     background-color: #ffff006b;
     padding: 1vw;
+    margin-bottom: 1vw;
 }
 
 .letteraVerde
 {
     background-color: #00dc007a;
     padding: 1vw;
+    margin-bottom: 1vw;
 }
 
 .letteraNera
