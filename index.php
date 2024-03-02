@@ -1,54 +1,68 @@
 <?php
-  require_once("var_conn.php");
+  /*require_once("var_conn.php");
   $sql = "CALL getIdRandom()";
   $res = mysqli_query($con, $sql);
   $row = mysqli_fetch_array($res);
-<<<<<<< HEAD
   $_SESSION['idParolaDaTrovare'] = $row[0];*/
   session_start();
-=======
-  $_SESSION['idParolaDaTrovare'] = $row[0];
->>>>>>> parent of 8c717e3 (Cose)
 ?>
 
 <html>
   <head>
-      
+      <link rel="stylesheet" href="css/index_style.css">
   </head>
 
   <body>
-      <input type="text" name="nuovaParola" id="nuovaParola" maxlength="5">
-      <button onclick="clickBtnCerca()">Invio</button>
-
+      <h1 id='titolo'>Word?e</h1>
       <p id="vecchieParole"></p>
-<<<<<<< HEAD
-      <input onchange="testoScritto()" placeholder="Inserisci una parola di 5 caratteri" type="text" name="nuovaParola" id="nuovaParola" maxlength="5">
+      <input oninput="testoScritto()" placeholder="Inserisci una parola di 5 caratteri" type="text" name="nuovaParola" id="nuovaParola" maxlength="5">
       <button id='invioBtn' onclick="clickBtnCerca()">Invio</button>
-=======
->>>>>>> parent of 8c717e3 (Cose)
 
       <script>
+        let contatore = 0;
         function clickBtnCerca()
         {
-          var xhttp = new XMLHttpRequest();
-          xhttp.onreadystatechange = function() {
-            if (this.readyState == 4 && this.status == 200) 
-              document.getElementById("vecchieParole").innerHTML = this.responseText;
-            };
+          ++contatore;
+          if(contatore <= 6)
+          {
             var nuovaParola = document.getElementById("nuovaParola").value;
-            var vecchieParole = document.getElementById("vecchieParole").innerHTML;
-            xhttp.open("GET", "verifica_parola.php?nuovaParola="+nuovaParola+"&vecchieParole="+vecchieParole, true);
-            xhttp.send();
+            if(nuovaParola.length == 5)
+            {
+              if(!nuovaParola.includes(" "))
+              {
+                var xhttp = new XMLHttpRequest();
+                xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) 
+                  document.getElementById("vecchieParole").innerHTML = this.responseText;
+                };
+                var vecchieParole = document.getElementById("vecchieParole").innerHTML;
+                xhttp.open("GET", "verifica_parola.php?nuovaParola="+nuovaParola+"&vecchieParole="+vecchieParole, true);
+                xhttp.send();
+                }
+                else
+                  alert("La parola non può contenere spazi!");
+            }
+            else
+              alert("La parola deve essere lunga 5 caratteri!");
+          }
+          if(contatore == 6)
+          {
+            var pulsanteInvio = document.getElementById("invioBtn");
+            pulsanteInvio.style.display = "none";
+            var iNuovaParola = document.getElementById("nuovaParola");
+            iNuovaParola.style.display = "none";
+          }
         }
 
         function testoScritto()
         {
-          /*var xhttp = new XMLHttpRequest();
+          var xhttp = new XMLHttpRequest();
           xhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) 
             {
+              var res = this.responseText;
               var pulsanteInvio = document.getElementById("invioBtn");
-              if(<?php echo $_SESSION['parolaEsistente']; ?> === "non esiste")
+              if(res === "non esiste")
               {
                 pulsanteInvio.style.backgroundColor = "red";
                 pulsanteInvio.style.pointerEvents = "none";
@@ -66,8 +80,8 @@
               }
             }
           };
-          xhttp.open("GET", "verifica_esistenza_parola.php?nuovaParola="+nuovaParola, true);
-          xhttp.send();*/
+          xhttp.open("GET", "verifica_esistenza_parola.php?nuovaParolaVerifica="+nuovaParola, true);
+          xhttp.send();
         }
       </script>
 
