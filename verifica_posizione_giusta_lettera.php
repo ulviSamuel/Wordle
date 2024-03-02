@@ -15,6 +15,19 @@
             $vectColori[$idx] = 'letteraVerde';
         }
         else
+        {
             $vectColori[$idx] = 'letteraNera';
+            $lettera = substr($nuovaParola, $idx, 1);
+            if (empty($lettereBandite))
+            {
+                array_push($lettereBandite, $lettera);
+            }
+            else
+            {
+                if(!in_array($lettera, $lettereBandite))
+                    array_push($lettereBandite, $lettera);
+            }
+        }
     }
+    sort($lettereBandite);
 ?>

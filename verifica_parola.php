@@ -7,6 +7,7 @@
     require_once("verifica_esistenza_parola.php");
     if($parolaEistente == true)
     {
+        require_once("crea_array_lettere_bandite_attuali.php");
         require_once("verifica_posizione_giusta_lettera.php");
         if($cont != 5)
             require_once("verifica_caratteri_giusti.php");

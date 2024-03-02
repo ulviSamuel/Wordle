@@ -15,4 +15,18 @@
     }
     else
         $codiceHtml = $vecchieParole;
+
+        if($cont != 5)
+        {
+            $codiceHtml = $codiceHtml . " BANDITE Lettere bandite: ";
+            $primoGiro = true;
+            foreach($lettereBandite as $lettera)
+            {
+                if($primoGiro == true)
+                    $codiceHtml = $codiceHtml . $lettera;
+                else
+                    $codiceHtml = $codiceHtml . ", " . $lettera;
+                $primoGiro = false;
+            }
+        }
 ?>

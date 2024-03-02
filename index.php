@@ -14,6 +14,7 @@
   <body>
       <h1 id='titolo'>Word?e</h1>
       <p id="vecchieParole"></p>
+      <span id='lettereBandite'>Lettere bandite: nessuna ancora scoperta</span>
       <input oninput="testoScritto()" placeholder="Inserisci una parola di 5 caratteri" type="text" name="nuovaParola" id="nuovaParola" maxlength="5">
       <button id='invioBtn' onclick="clickBtnCerca()">Invio</button>
 
@@ -41,12 +42,19 @@
                       pulsanteInvio.style.display = "none";
                       var iNuovaParola = document.getElementById("nuovaParola");
                       iNuovaParola.style.display = "none";
+                      document.getElementById("vecchieParole").innerHTML = res;
                     }
-                    document.getElementById("vecchieParole").innerHTML = res;
+                    else
+                    {
+                      var parti = res.split(" BANDITE ");
+                      document.getElementById("lettereBandite").innerHTML = parti[1];
+                      document.getElementById("vecchieParole").innerHTML = parti[0];
+                    }
                 }
                 };
                 var vecchieParole = document.getElementById("vecchieParole").innerHTML;
-                xhttp.open("GET", "verifica_parola.php?nuovaParola="+nuovaParola+"&vecchieParole="+vecchieParole, true);
+                var lettereBandite = document.getElementById("lettereBandite").innerHTML;
+                xhttp.open("GET", "verifica_parola.php?nuovaParola="+nuovaParola+"&vecchieParole="+vecchieParole+"&lettereBandite="+lettereBandite, true);
                 xhttp.send();
                 }
                 else
