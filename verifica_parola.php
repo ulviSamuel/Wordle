@@ -2,8 +2,8 @@
     $vecchieParole = $_REQUEST['vecchieParole'];
     $nuovaParola   = $_REQUEST['nuovaParola'];
     $codiceHtml = "";
-    //$idParolaDaTrovare = $_SESSION['idParolaDaTrovare'] ;
-    //require_once("var_conn.php");
+    require_once("var_conn.php");
+    $idParolaDaTrovare = $_SESSION['idParolaDaTrovare'] ;
     require_once("verifica_esistenza_parola.php");
     if($parolaEistente == true)
     {

@@ -1,6 +1,7 @@
 <?php
-  /*require_once("var_conn.php");
-  $sql = "CALL getIdRandom()";
+  require_once("var_conn.php");
+  $_SESSION['idParolaDaTrovare'] = 4;
+  /*$sql = "CALL getIdRandom()";
   $res = mysqli_query($con, $sql);
   $row = mysqli_fetch_array($res);
   $_SESSION['idParolaDaTrovare'] = $row[0];*/
@@ -102,6 +103,7 @@
               }
             }
           };
+          var nuovaParola = document.getElementById("nuovaParola").value;
           xhttp.open("GET", "verifica_esistenza_parola.php?nuovaParolaVerifica="+nuovaParola, true);
           xhttp.send();
         }
