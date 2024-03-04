@@ -1,10 +1,10 @@
 <?php
   require_once("var_conn.php");
-  $_SESSION['idParolaDaTrovare'] = 4;
-  /*$sql = "CALL getIdRandom()";
+  //$_SESSION['idParolaDaTrovare'] = 4;
+  $sql = "CALL getIdRandom()";
   $res = mysqli_query($con, $sql);
   $row = mysqli_fetch_array($res);
-  $_SESSION['idParolaDaTrovare'] = $row[0];*/
+  $_SESSION['idParolaDaTrovare'] = $row[0];
 ?>
 
 <html>
